@@ -1,0 +1,32 @@
+<div class="home">
+    <div class="header">
+      <h1>Dashboard</h1>
+      <div class="content">
+        <div class="total-task-chart">
+          <div class="chart">
+            <canvas class="donut" id="doughnut">
+            </canvas>
+          </div>
+          <div *ngFor="let task of tasks | async; let i = index">
+      
+          </div>
+          <div class="total-task">
+            <p class="data">{{ (tasks | async)?.length }}</p>
+            <p class="data-type">Tasks</p>
+          </div>
+        </div>
+        <div>
+          <div *ngFor="let n of typeData" class="total-task-analytics">
+            <div class="display"></div>
+            <div>
+              <p class="data">{{ n.count | number: '1.0-0'}} %</p>
+              <p class="data-type">{{ n.type }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <app-list></app-list>
+  
