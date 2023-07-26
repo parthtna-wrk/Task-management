@@ -14,4 +14,11 @@ interface ITask {
     type: string;
   }
   
-  export { ITask, ITaskTypeOption, ITypePercentage };
+  interface IUser{
+    firstName:string ;
+    lastName:string;
+    email:string;
+    userName:string;
+    id:number;
+  }
+  export { ITask, ITaskTypeOption, ITypePercentage ,IUser};

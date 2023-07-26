@@ -1,0 +1,22 @@
+
+<div class="bg-gray-100 h-screen">
+    <h1 class="text-center bg-gray-200 hover:text-3xl">
+
+        SCHEDULE CALENDAR
+    </h1>
+
+    <div class="max-w-3xl mx-auto">
+        <full-calendar [options]="calendarOptions" ></full-calendar>
+    </div>
+
+    <div class="flex justify-center">
+        <div *ngFor="let n of typeData" class="total-task-analytics">
+          <div [ngClass]="{'done-color': n.type === 'done', 'todo-color': n.type === 'todo', 'pending-color': n.type === 'pending'}"  class=" display"></div>
+          <div>
+            <p class="data-type uppercase">{{ n.type }}</p>
+          </div>
+        </div>
+      </div>
+    
+</div>
+

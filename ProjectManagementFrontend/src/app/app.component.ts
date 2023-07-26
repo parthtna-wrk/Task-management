@@ -19,6 +19,6 @@ export class AppComponent {
   }
 
   isAuthRoute() {
-    return this.router.url === '/login' || this.router.url === '/register';
+    return this.router.url === '/login' || this.router.url === '/register' || this.router.url === '/terms';
   }
 }

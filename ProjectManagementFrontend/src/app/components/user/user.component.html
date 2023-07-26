@@ -1,0 +1,19 @@
+<div class="bg-gray-100 min-h-screen py-8">
+    <div class="max-w-xl mx-auto bg-white shadow-lg rounded-lg p-6">
+      <h1 class="text-3xl font-semibold text-indigo-600 mb-6 text-center">Your Account Details</h1>
+      <div *ngFor="let user of users" class="mb-6">
+        <h1 class="text-3xl font-semibold text-indigo-600 capitalize">{{ user.firstName }} {{ user.lastName }}</h1>
+        <p class="text-gray-600 ">Your Username : @{{ user.userName }}</p>
+        <div class="mt-4">
+          <h2 class="text-lg font-semibold text-indigo-600">Contact Information</h2>
+          <p class="text-gray-600 ">Your Email : {{ user.email }}</p>
+          <p class="text-gray-600 ">Your User Id: {{ user.id }}</p>
+          <div class="content flex flex-col items-center">
+            <!-- Your existing content here -->
+            <button (click)="logOut()" class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded mt-4 ">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
