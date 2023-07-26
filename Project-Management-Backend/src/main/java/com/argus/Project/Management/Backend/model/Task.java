@@ -21,7 +21,11 @@ public class Task {
     private String title;
     private String type;
     private Date dueDate;
-    private String Description;
+    private String description;
+    private String createdBy;
 
 
 }
+
+
+

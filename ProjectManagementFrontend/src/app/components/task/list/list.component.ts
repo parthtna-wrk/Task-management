@@ -23,6 +23,7 @@ export class ListComponent implements OnInit {
     this.tasks = this.taskService.getTaskList();
   }
 
+
   onOpenDialog(task: ITask) {
     const dialogRef = this.dialog.open(ShowComponent, {
       data: task,

@@ -49,6 +49,7 @@ export class ShowComponent implements OnInit {
     this.taskService.updateTask(this.taskForm?.value, this.data.id as string).subscribe(
       (d) => {
         this.dialogRef.close();
+        console.log("working");
       },
       (error) => console.error(error)
     );

@@ -1,10 +1,11 @@
-<div class="header">
-    <h1>Add Task</h1>
+
+<div class="header text-center ">
+  <h1>Add Task</h1>
   </div>
   
   <div class="add-task">
     <div class="content">
-      <form [formGroup]="taskForm" (submit)="addTask()">
+      <form [formGroup]="taskForm" (submit)="addTask()" class="w-80 mx-auto">
         <mat-form-field>
           <mat-label>Title</mat-label>
           <input matInput placeholder="Title" formControlName="title" />
@@ -17,7 +18,7 @@
             }}</mat-option>
           </mat-select>
         </mat-form-field>
-  
+        
         <mat-form-field appearance="fill">
           <mat-label>Due date</mat-label>
           <input matInput [matDatepicker]="picker" formControlName="dueDate" />
@@ -27,9 +28,9 @@
         <mat-form-field>
           <mat-label>Description</mat-label>
           <textarea
-            matInput
-            placeholder="Description"
-            formControlName="description"
+          matInput
+          placeholder="Description"
+          formControlName="description"
           ></textarea>
         </mat-form-field>
         <button
@@ -38,9 +39,10 @@
           type="submit"
           mat-raised-button
           color="primary"
-        >
+          >
           Submit
         </button>
       </form>
     </div>
   </div>
+

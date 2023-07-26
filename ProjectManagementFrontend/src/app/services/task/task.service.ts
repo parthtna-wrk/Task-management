@@ -15,34 +15,64 @@ export class TaskService {
   constructor(private httpclient: HttpClient) {}
 
   getTaskList(): Observable<Array<ITask>> {
+    const token = localStorage.getItem('token');
     return this.httpclient
-      .get('http://localhost:8080/api/v1/task')
+      .get('http://localhost:8080/api/v1/task', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .pipe(map((d: Object) => d as Array<ITask>));
   }
   postTaskList(task: ITask): Observable<ITask> {
+    const token = localStorage.getItem('token');
     return this.httpclient
-      .post('http://localhost:8080/api/v1/task', task)
+      .post('http://localhost:8080/api/v1/task', task, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .pipe(map((d: Object) => d as ITask) );
   }
 
   updateTask(task: ITask, id: string): Observable<ITask> {
+    const token = localStorage.getItem('token');
     return this.httpclient
-      .put(`http://localhost:8080/api/v1/task/${id}`, task)
+      .put(`http://localhost:8080/api/v1/task/${id}`, task, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .pipe(map((d: Object) => d as ITask));
   }
   deleteTask(id: string) {
-    return this.httpclient.delete(`http://localhost:8080/api/v1/task/${id}`);
+    const token = localStorage.getItem('token');
+    return this.httpclient.delete(`http://localhost:8080/api/v1/task/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   }
 
   getTaskById(id: string): Observable<ITask> {
+    const token = localStorage.getItem('token');
     return this.httpclient
-      .get(`http://localhost:8080/api/v1/task/${id}`)
+      .get(`http://localhost:8080/api/v1/task/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .pipe(map((d: Object) => d as ITask));
   }
 
   getTypePercentage(): Observable<Array<ITypePercentage>> {
+    const token = localStorage.getItem('token');
     return this.httpclient
-      .get(`http://localhost:8080/api/v1/task/vData/percentcounttype`)
+      .get(`http://localhost:8080/api/v1/task/vData/percentcounttype`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .pipe(map((d: Object) => d as Array<ITypePercentage>));
   }
 

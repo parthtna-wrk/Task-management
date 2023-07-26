@@ -1,0 +1,36 @@
+.done-color {
+    background-color: #f68059;
+  }
+  
+  .todo-color {
+    background-color: #ffbf3a;
+  }
+  
+  .pending-color {
+    background-color: #4e3dc8;
+  }
+  
+  .total-task-analytics .data {
+    font-size: 29px;
+    font-weight: 500;
+  }
+ 
+  .total-task-analytics {
+    display: flex;
+    align-items: flex-start;
+    margin: 15px 0 15px 0;
+  }
+
+  .total-task-analytics .display {
+    width: 15px;
+    height: 15px;
+    border-radius: 35%;
+    border: 1px solid #ccc;
+    margin: 0 20px 0 20px;
+  }
+  .total-task-analytics .data-type {
+    font-size: 20px;
+    font-weight: 500;
+    color: #c3c5cd;
+  }
+  

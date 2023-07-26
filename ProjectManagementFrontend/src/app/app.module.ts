@@ -7,8 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
 import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +17,10 @@ import { AddComponent } from './components/task/add/add.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ListComponent } from './components/task/list/list.component';
 import { HomeComponent } from './components/home/home.component';
+import { UserComponent } from './components/user/user.component';
+import { TermsComponent } from './components/terms/terms.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -30,19 +32,22 @@ import { HomeComponent } from './components/home/home.component';
     NavigationComponent,
     AddComponent,
     ShowComponent,
+    UserComponent,
+    TermsComponent,
+    CalendarComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
+    FullCalendarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgChartsModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    ButtonModule,
-    CardModule,
+
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-bottom-right',
@@ -56,7 +61,7 @@ import { HomeComponent } from './components/home/home.component';
         disallowedRoutes: ['example.com/examplebadroute/'],
       },
     }),
-    MaterialModule, // Add MaterialModule here if not already included
+    MaterialModule,
   ],
 })
 export class AppModule {}

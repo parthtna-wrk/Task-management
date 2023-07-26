@@ -1,6 +1,6 @@
 <div class="home">
     <div class="header">
-      <h1>Dashboard</h1>
+     <header class="text-4xl text-center uppercase">Dashboard</header>
       <div class="content">
         <div class="total-task-chart">
           <div class="chart">
@@ -17,10 +17,10 @@
         </div>
         <div>
           <div *ngFor="let n of typeData" class="total-task-analytics">
-            <div class="display"></div>
+            <div [ngClass]="{'done-color': n.type === 'done', 'todo-color': n.type === 'todo', 'pending-color': n.type === 'pending'}"  class=" display"></div>
             <div>
               <p class="data">{{ n.count | number: '1.0-0'}} %</p>
-              <p class="data-type">{{ n.type }}</p>
+              <p class="data-type uppercase">{{ n.type }}</p>
             </div>
           </div>
         </div>
