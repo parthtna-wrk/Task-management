@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from 'fullcalendar';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { Observable } from 'rxjs';
-import { ITask } from 'src/app/interface/task.interface';
+import { ITask, ITaskTypeOption } from 'src/app/interface/task.interface';
 import { TaskService } from 'src/app/services/task/task.service';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -13,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CalendarComponent implements OnInit {
 
-  
+  typeOptions: Array<ITaskTypeOption> = [];
 
   tasks: Observable<Array<ITask>> | undefined;
   typeData: any;
@@ -23,20 +23,17 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTasks();
+    this.typeOptions=this.taskService.getTypeOptions();
 
-    this.taskService.getTypePercentage().subscribe(
-      (d) => {
-        this.typeData = d;
-        if (this.typeData!= null){
-          for(let i=0; i<this.typeData.length ;i++){
-           
-
-          }
-         
-        }
-      },
-
-      );
+    // this.taskService.getTypePercentage().subscribe(
+    //   (d) => {
+    //     this.typeData = d;
+    //     if (this.typeData!= null){
+    //       for(let i=0; i<this.typeData.length ;i++){
+    //       }  
+    //     }
+    //   },
+    //   );
   }
   
 
@@ -72,8 +69,6 @@ export class CalendarComponent implements OnInit {
   }
   
   getEventBackgroundColor(type: string): string {
-    // Here, you can define the logic to determine the background color based on the task type.
-    // For example:
     if (type === 'todo') {
       return '#ffbf3a'; 
     } else if (type === 'pending') {
@@ -81,15 +76,15 @@ export class CalendarComponent implements OnInit {
     } else if (type === 'done') {
       return '#f68059'; 
     } else {
-      return '#888'; // Default color for other types
+      return '#888'; 
     }
   }
   
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin],
-    dateClick: this.handleDateClick.bind(this), // MUST ensure `this` context is maintained
-    events: [], // Empty array to be filled with dynamic data from backend
+    dateClick: this.handleDateClick.bind(this), 
+    events: [], 
     eventBackgroundColor:'#b12a28'
   };
 
