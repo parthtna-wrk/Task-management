@@ -11,8 +11,13 @@ export class UserService {
   constructor(private httpclient: HttpClient) { }
 
   getUserDetails(): Observable<Array<IUser>> {
+    const token = localStorage.getItem('token');
     return this.httpclient
-      .get('http://localhost:8080/api/v1/userDetails')
+      .get('http://localhost:8080/api/v1/userDetails', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .pipe(map((d: Object) => d as Array<IUser>));
   }
 }
