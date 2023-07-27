@@ -10,18 +10,14 @@
     </div>
 
     <div class="flex justify-center">
-        <div  class="total-task-analytics">
-          <!-- <div [ngClass]="{'done-color': n.type === 'done', 'todo-color': n.type === 'todo', 'pending-color': n.type === 'pending'}"  class=" display"></div> -->
-          <div>
-            <!-- <p class="data-type uppercase">{{ n.type }}</p> -->
-            
-            <div *ngFor="let x of this.typeOptions" class="flex data-type uppercase ">
-              <div [ngClass]="{'done-color': x.type === 'done', 'todo-color': x.type === 'todo', 'pending-color': x.type === 'pending'}"  class=" display flex"></div>
-              {{x.type}}
-            </div>
-          </div>
+      <div class="total-task-analytics flex space-x-4">
+        <div *ngFor="let x of this.typeOptions" class="data-type uppercase flex items-center space-x-2">
+          <div [ngClass]="{'done-color': x.type === 'done', 'todo-color': x.type === 'todo', 'pending-color': x.type === 'pending'}" class="display w-4 h-4 rounded-full"></div>
+          {{x.type}}
         </div>
       </div>
+    </div>
+    
       
 </div>
 
